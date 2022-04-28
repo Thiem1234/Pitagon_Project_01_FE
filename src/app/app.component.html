@@ -2,7 +2,13 @@
   <h1>Convert Data</h1>
   <div class="row">
     <div class="col-sm-3">
-      <select class="form-control" [(ngModel)]="typeInputData" name="" id="">
+      <select
+        (change)="sendDataToDotNetCore()"
+        class="form-control"
+        [(ngModel)]="typeInputData"
+        name=""
+        id=""
+      >
         <option selected value="String">String</option>
         <option value="Base64">Base64</option>
         <option value="Hex">Hex</option>
@@ -10,6 +16,8 @@
       <textarea
         class="form-control"
         rows="4"
+        (click)="sendDataToDotNetCore()"
+        (keyup)="sendDataToDotNetCore()"
         [(ngModel)]="inputData"
       ></textarea>
     </div>
@@ -29,7 +37,13 @@
       </svg>
     </div>
     <div class="col-sm-3">
-      <select class="form-control" [(ngModel)]="typeOutputData" name="" id="">
+      <select
+        class="form-control"
+        (change)="sendDataToDotNetCore()"
+        [(ngModel)]="typeOutputData"
+        name=""
+        id=""
+      >
         <option value="String">String</option>
         <option value="Base64">Base64</option>
         <option value="Hex">Hex</option>
@@ -40,13 +54,6 @@
         [(ngModel)]="outputData"
         rows="4"
       ></textarea>
-    </div>
-  </div>
-  <div class="row mt-2">
-    <div class="col-sm-2">
-      <button class="btn btn-success" (click)="sendDataToDotNetCore()">
-        Click to Convert
-      </button>
     </div>
   </div>
 </div>

@@ -12,10 +12,9 @@ interface Article {
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent implements OnInit {
-
   ngOnInit() {
-    this.typeInputData = "String";
-    this.typeOutputData = "String";
+    this.typeInputData = 'String';
+    this.typeOutputData = 'String';
   }
   title = 'Project01_FE';
   inputData: any;
@@ -23,16 +22,13 @@ export class AppComponent implements OnInit {
   typeOutputData: any;
   outputData: any;
   listValue: any = [];
-  constructor(private service: SharedService, private http: HttpClient) {
-
-  }
+  constructor(private service: SharedService, private http: HttpClient) {}
   sendDataToDotNetCore() {
-    if(this.inputData != null){
+    if (this.inputData != null) {
       var val = {
         valueInputData: this.inputData,
         typeInputData: this.typeInputData,
         typeOutputData: this.typeOutputData,
-
       };
       try {
         this.service.getValueInputAPI(val).subscribe((response) => {
@@ -44,6 +40,5 @@ export class AppComponent implements OnInit {
         console.log(e);
       }
     }
-
   }
 }
